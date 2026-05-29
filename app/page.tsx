@@ -1298,7 +1298,7 @@ function generateMonthHeatmap() {
 
 // ─── COMPONENTS ──────────────────────────────────────────────────────────────
 
-function Toast({ toasts }) {
+function Toast({ toasts }: { toasts: any[] }) {
   return (
     <div className="toast-container">
       {toasts.map(t => (
@@ -1311,7 +1311,7 @@ function Toast({ toasts }) {
   );
 }
 
-function ToggleSwitch({ checked, onChange }) {
+function ToggleSwitch({ checked, onChange }: { checked: boolean, onChange: (v: boolean) => void }) {
   return (
     <label className="toggle-switch">
       <input type="checkbox" checked={checked} onChange={e => onChange(e.target.checked)} />
@@ -1321,7 +1321,7 @@ function ToggleSwitch({ checked, onChange }) {
   );
 }
 
-function StreakRing({ streak, max = 30 }) {
+function StreakRing({ streak, max = 30 }: { streak: number, max?: number }) {
   const r = 44, cx = 55, cy = 55;
   const circ = 2 * Math.PI * r;
   const fill = Math.min(streak / max, 1) * circ;
@@ -1345,7 +1345,7 @@ function StreakRing({ streak, max = 30 }) {
   );
 }
 
-function PrayerCard({ prayer, status, onToggle }) {
+function PrayerCard({ prayer, status, onToggle }: { prayer: any, status: string, onToggle: (key: string) => void }) {
   const isCompleted = status === "completed";
   const isMissed = status === "missed";
   return (
@@ -1365,7 +1365,7 @@ function PrayerCard({ prayer, status, onToggle }) {
   );
 }
 
-function WeekBars({ data }) {
+function WeekBars({ data }: { data: any[] }) {
   const max = 5;
   const todayIdx = 6;
   return (
@@ -1413,7 +1413,7 @@ function MonthHeatmap() {
 
 // ─── PAGES ────────────────────────────────────────────────────────────────────
 
-function DashboardPage({ prayerStatuses, onToggle, addToast }) {
+function DashboardPage({ prayerStatuses, onToggle, addToast }: { prayerStatuses: any, onToggle: (key: string) => void, addToast: any }) {
   const hijri = getHijriDate();
   const completedToday = Object.values(prayerStatuses).filter(s => s === "completed").length;
   const weekScore = Math.round((WEEKLY_DATA.reduce((a,d) => a+d.count, 0) / 35) * 100);
@@ -1545,7 +1545,7 @@ function DashboardPage({ prayerStatuses, onToggle, addToast }) {
   );
 }
 
-function TrackPage({ prayerStatuses, onToggle }) {
+function TrackPage({ prayerStatuses, onToggle }: { prayerStatuses: any, onToggle: (key: string) => void }) {
   const [selectedDate, setSelectedDate] = useState("today");
   const dates = ["today", "yesterday", "2 days ago"];
   const completedToday = Object.values(prayerStatuses).filter(s => s === "completed").length;
@@ -1909,7 +1909,7 @@ function BadgesPage() {
   );
 }
 
-function SettingsPage({ user, setUser }) {
+function SettingsPage({ user, setUser }: { user?: any, setUser?: any }) {
   const [notifs, setNotifs] = useState({ fajr: true, dhuhr: true, asr: true, maghrib: true, isha: true });
   const [leaderboard, setLeaderboard] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
