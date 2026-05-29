@@ -2014,7 +2014,7 @@ function SettingsPage({ user, setUser }: { user?: any, setUser?: any }) {
   );
 }
 
-function AuthPage({ onLogin }) {
+function AuthPage({ onLogin }: { onLogin: () => void }) {
   const [mode, setMode] = useState("login");
   const [email, setEmail] = useState("ahmad@example.com");
   const [password, setPassword] = useState("••••••••");
