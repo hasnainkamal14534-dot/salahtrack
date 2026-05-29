@@ -2111,7 +2111,7 @@ export default function SalahTrack() {
     setPrayerStatuses(prev => {
       const current = prev[prayerKey];
       const next = current === "completed" ? "pending" : "completed";
-      const p = PRAYERS.find(x => x.key === prayerKey);
+      const p = PRAYERS.find(x => x.key === prayerKey)!;
       if (next === "completed") {
         addToast(`${p.name} marked as completed`, "success", p.emoji);
       }
