@@ -2098,7 +2098,7 @@ const PAGE_TITLES = {
 export default function SalahTrack() {
   const [isAuthed, setIsAuthed] = useState(false);
   const [currentPage, setCurrentPage] = useState("dashboard");
-  const [prayerStatuses, setPrayerStatuses] = useState(INITIAL_PRAYERS);
+  const [prayerStatuses, setPrayerStatuses] = useState<Record<string, string>>(INITIAL_PRAYERS);
   const [toasts, setToasts] = useState<any[]>([]);
 
   const addToast = useCallback((message: string, type: string = "success", emoji: string = "✅") => {
