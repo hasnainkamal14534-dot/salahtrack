@@ -2099,7 +2099,7 @@ export default function SalahTrack() {
   const [isAuthed, setIsAuthed] = useState(false);
   const [currentPage, setCurrentPage] = useState("dashboard");
   const [prayerStatuses, setPrayerStatuses] = useState(INITIAL_PRAYERS);
-  const [toasts, setToasts] = useState([]);
+  const [toasts, setToasts] = useState<any[]>([]);
 
   const addToast = useCallback((message: string, type: string = "success", emoji: string = "✅") => {
     const id = Date.now();
@@ -2107,7 +2107,7 @@ export default function SalahTrack() {
     setTimeout(() => setToasts(t => t.filter(x => x.id !== id)), 3000);
   }, []);
 
-  const handleToggle = useCallback((prayerKey) => {
+  const handleToggle = useCallback((prayerKey: string) => {
     setPrayerStatuses(prev => {
       const current = prev[prayerKey];
       const next = current === "completed" ? "pending" : "completed";
