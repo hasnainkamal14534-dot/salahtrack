@@ -1910,7 +1910,7 @@ function BadgesPage() {
 }
 
 function SettingsPage({ user, setUser }: { user?: any, setUser?: any }) {
-  const [notifs, setNotifs] = useState({ fajr: true, dhuhr: true, asr: true, maghrib: true, isha: true });
+  const [notifs, setNotifs] = useState<Record<string, boolean>>({ fajr: true, dhuhr: true, asr: true, maghrib: true, isha: true });
   const [leaderboard, setLeaderboard] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
 
